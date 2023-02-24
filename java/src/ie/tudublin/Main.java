@@ -35,13 +35,12 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		System.out.println("Hello world");
-		
-		Dog penny = new Dog();
-		penny.setName("Penny");
-		penny.speak();
 
-		audio1();
-	}
 	
+		Cat ginger = new Cat("Ginger");
+		ginger.speak();
+
+		while (ginger.currentLives() > 0)
+			ginger.kill();
+	}
 }
