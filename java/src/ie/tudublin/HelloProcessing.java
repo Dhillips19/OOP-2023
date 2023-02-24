@@ -13,10 +13,6 @@ public class HelloProcessing extends PApplet
 	public void setup() {
 	
 	}
-
-	float x1, y1, x2, y2;
-	float x1dir, x2dir, y1dir, y2dir;
-	float c = 0;
 	
 	public void draw()
 	{	
