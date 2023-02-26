@@ -15,10 +15,10 @@ public class Main
         processing.core.PApplet.runSketch( a, new Loops());
     }
 
-	public static void bugZap()
+	public static void BugZap2()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new BugZap());
+        processing.core.PApplet.runSketch( a, new BugZap2());
     }
 
 	public static void starMap()
@@ -41,7 +41,7 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		audio1();
+		BugZap2();
 	}
 	
 }
