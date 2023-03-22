@@ -16,7 +16,7 @@ public class StarMap extends PApplet {
 
     void drawGrid()
     {
-        stroke(255, 0, 255);
+        /*stroke(255, 0, 255);
         textAlign(CENTER, CENTER);
         textSize(20);
         for(int i = -5; i <=5; i ++)
@@ -27,7 +27,15 @@ public class StarMap extends PApplet {
             fill(255);
             text(i, x, border * 0.5f);
             text(i, border * 0.5f, x);
+        }*/
+        int border = 50;
+        for(int i = 0, parsecs = -5; i <= 10; i++)
+        {
+            line(border + (border * i), border, width - border - (border * i), height - border);
+            line(border + (border * i), border, width - border - (border * i), height - border);
+
         }
+
     }
 
     void printStars()
