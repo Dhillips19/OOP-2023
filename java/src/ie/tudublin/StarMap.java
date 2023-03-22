@@ -16,10 +16,10 @@ public class StarMap extends PApplet {
 
     void drawGrid()
     {
-        /*stroke(255, 0, 255);
+        stroke(255, 0, 255);
         textAlign(CENTER, CENTER);
         textSize(20);
-        for(int i = -5; i <=5; i ++)
+        /*for(int i = -5; i <=5; i ++)
         {
             float x = map(i, -5, 5, border, width - border);
             line(x, border, x, height - border);
@@ -29,24 +29,26 @@ public class StarMap extends PApplet {
             text(i, border * 0.5f, x);
         }*/
         int border = 50;
-        for(int i = 0, parsecs = -5; i <= 10; i++)
+        int cellSize = 700 / 10;
+        for(int i = 0, parsecs = -5; i <= 10; i++, parsecs++)
         {
-            line(border + (border * i), border, width - border - (border * i), height - border);
-            line(border + (border * i), border, width - border - (border * i), height - border);
-
+            line(border + (cellSize * i), border, border + (cellSize * i), height - border);
+            line(border, border + (cellSize * i), width - border, border + (cellSize * i));
+            text(parsecs, border + (cellSize * i), border * 0.5f);
+            text(parsecs, border * 0.5f, border + (cellSize * i));
         }
 
     }
 
-    void printStars()
+    /*void printStars()
     {
         for(Star s:stars)
         {
             System.out.println(s);
         }
-    }
+    }*/
 
-    void loadStars()
+    /*void loadStars()
     {
         Table table = loadTable("HabHYG15ly.csv", "header");
         for(TableRow r:table.rows())
@@ -54,7 +56,7 @@ public class StarMap extends PApplet {
             Star s = new Star(r);
             stars.add(s);
         }
-    }
+    }*/
 
     public void settings() {
         size(800, 800);
@@ -65,7 +67,7 @@ public class StarMap extends PApplet {
 
 
 
-    public void mouseClicked()
+    /*public void mouseClicked()
     {
         for(Star s:stars)
         {
@@ -92,29 +94,29 @@ public class StarMap extends PApplet {
                 }
             }
         }
-    }
+    }*/
 
     public void setup() {
         colorMode(RGB);
-        loadStars();
+        /*loadStars();
         printStars();
 
-        border = width * 0.1f;
+        border = width * 0.1f;*/
     }
 
-    public void drawStars()
+    /*public void drawStars()
     {
         for(Star s:stars)
         {
             s.render(this);
         }
-    }
+    }/* */
 
     public void draw() 
     {
         background(0);
         drawGrid();
-        drawStars();
+        /*drawStars();
 
         if (first != null)
         {
@@ -141,6 +143,6 @@ public class StarMap extends PApplet {
                 stroke(255, 255, 0);
                 line(x, y, mouseX, mouseY);
             }
-        }
+        }*/
     }
 }
