@@ -16,7 +16,7 @@ public class StarMap extends PApplet {
 
     void drawGrid()
     {
-        stroke(255, 0, 255);
+        stroke(0, 255, 255);
         textAlign(CENTER, CENTER);
         textSize(20);
         /*for(int i = -5; i <=5; i ++)
@@ -40,15 +40,15 @@ public class StarMap extends PApplet {
 
     }
 
-    /*void printStars()
+    void printStars()
     {
         for(Star s:stars)
         {
             System.out.println(s);
         }
-    }*/
+    }
 
-    /*void loadStars()
+    void loadStars()
     {
         Table table = loadTable("HabHYG15ly.csv", "header");
         for(TableRow r:table.rows())
@@ -56,7 +56,7 @@ public class StarMap extends PApplet {
             Star s = new Star(r);
             stars.add(s);
         }
-    }*/
+    }
 
     public void settings() {
         size(800, 800);
@@ -98,27 +98,31 @@ public class StarMap extends PApplet {
 
     public void setup() {
         colorMode(RGB);
-        /*loadStars();
+        background(0);
+
+        smooth();
+
+        loadStars();
         printStars();
 
-        border = width * 0.1f;*/
+        /*border = width * 0.1f;*/
     }
 
-    /*public void drawStars()
+    public void drawStars()
     {
         for(Star s:stars)
         {
             s.render(this);
         }
-    }/* */
+    }
 
     public void draw() 
     {
-        background(0);
+        strokeWeight(1);
         drawGrid();
-        /*drawStars();
+        drawStars();
 
-        if (first != null)
+        /*if (first != null)
         {
 
             float x = map(first.getxG(), -5, 5, border, width - border);

@@ -1,7 +1,11 @@
 package ie.tudublin;
 
+import java.util.Map;
+
 import processing.core.PApplet;
 import processing.data.TableRow;
+
+import processing.data.*;
 
 public class Star
 {
@@ -13,8 +17,6 @@ public class Star
     private float zG;
     private float absMag;
 
-    
-
     @Override
     public String toString() {
         return "Star [absMag=" + absMag + ", displayName=" + displayName + ", distance=" + distance + ", hab=" + hab
@@ -23,6 +25,7 @@ public class Star
 
     public Star(TableRow tr)
     {
+        //Constructor Chaining
         this(
             tr.getInt("Hab?") == 1, 
             tr.getString("Display Name"), 
@@ -89,19 +92,21 @@ public class Star
 
     public void render(StarMap pa)
     {
-        float x = PApplet.map(xG, -5, 5, pa.border, pa.width - pa.border);
-        float y = PApplet.map(yG, -5, 5, pa.border, pa.height - pa.border);
+        float border = pa.width * 0.1f;
+        float x = PApplet.map(xG, -5, 5, border, pa.width - border);
+        float y = PApplet.map(yG, -5, 5, border, pa.height - border);
 
-        
         pa.stroke(255, 255, 0);
-        pa.line(x, y -5, x, y + 5);
-        pa.line(x-5, y, x + 5, y);
+        pa.line(x, y-5, x, y+5);
+        pa.line(x-5, y, x+5, y);
         pa.stroke(255, 0, 0);
-        pa.noFill();
         pa.circle(x, y, absMag);
         pa.fill(255);
-        pa.textSize(16);
         pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+        pa.textSize(16);
         pa.text(displayName, x + 20, y);
+        pa.noFill();
+
+
     }
 }
